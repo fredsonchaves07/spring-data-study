@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+
+  db:
+    image: mysql:8.0
+    command: --innodb-use-native-aio=0
+    container_name: db
+    tty: true
+    environment:
+      - MYSQL_DATABASE=regesc
+      - MYSQL_ROOT_PASSWORD=root
+    networks:
+      - spring-data-study
+
+networks:
+  spring-data-study:
+    driver: bridge
