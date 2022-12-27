@@ -1,8 +1,10 @@
 package com.fredsonchaves07.springdatastudy.entities;
 
 import javax.persistence.*;
+import java.util.*;
 
 @Entity
+@Table(name = "tb_professor")
 public class Professor {
 
     @Id
@@ -15,12 +17,16 @@ public class Professor {
     @Column(nullable = false, unique = true)
     private String prontuario;
 
+    @OneToMany(mappedBy = "professor")
+    private List<Disciplina> disciplinas;
+
     @Deprecated
     public Professor() {}
 
-    public Professor(String nome, String prontuario) {
+    public Professor(String nome, String prontuario, List<Disciplina> disciplinas) {
         this.nome = nome;
         this.prontuario = prontuario;
+        this.disciplinas = disciplinas;
     }
 
     public String getNome() {

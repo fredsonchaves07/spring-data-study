@@ -20,7 +20,7 @@ public class SpringDataStudyApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Professor professor = new Professor("Fredson", "xyz");
-        repository.criar(professor);
+//        Professor professor = new Professor("Fredson", "xyz");
+//        repository.criar(professor);
     }
 }
