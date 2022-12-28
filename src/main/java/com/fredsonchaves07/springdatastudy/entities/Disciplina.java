@@ -1,6 +1,7 @@
 package com.fredsonchaves07.springdatastudy.entities;
 
 import javax.persistence.*;
+import java.util.*;
 
 @Entity
 @Table(name = "tb_disciplina")
@@ -17,6 +18,14 @@ public class Disciplina {
     @ManyToOne
     @JoinColumn(name = "professor_id", nullable = false)
     private Professor professor;
+
+    @ManyToMany
+    @JoinTable(
+            name = "disciplinas_alunos",
+            joinColumns = @JoinColumn(name = "disciplina_fk"),
+            inverseJoinColumns = @JoinColumn(name = "aluno_fk")
+    )
+    private List<Aluno> alunos;
 
     public Disciplina(Long id, String nome, Integer semestre, Professor professor) {
         this.id = id;
